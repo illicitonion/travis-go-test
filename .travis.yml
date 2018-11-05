@@ -12,7 +12,8 @@ addons:
       - python3
       - openssl
       - libssl-dev
+      - pkg-config
 language: python
 python: "2.7"
 script:
-  - find /usr -iname '*lib*ssl*.so*'
+  - pkg-config libssl --variable=libdir
