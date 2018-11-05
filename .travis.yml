@@ -15,4 +15,4 @@ addons:
 language: python
 python: "2.7"
 script:
-  - find /usr -iname openssl
+  - find /usr -iname '*lib*ssl*.so*'
