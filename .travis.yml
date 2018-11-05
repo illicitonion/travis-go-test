@@ -1,14 +1,18 @@
-language: go
-
-go:
-  - 1.9
-
-before_install:
-  - go get -v github.com/golang/lint/golint
-
+os: linux
+dist: trusty
+sudo: required
+addons:
+  apt:
+    packages:
+      - lib32stdc++6
+      - lib32z1
+      - lib32z1-dev
+      - gcc-multilib
+      - python-dev
+      - python3
+      - openssl
+      - libssl-dev
+language: python
+python: "2.7"
 script:
-  - BAD_FILES=$(gofmt -l .) && [[ -z "${BAD_FILES}" ]] || (echo >&2 "Badly formatted files:" && echo "${BAD_FILES}" && exit 1)
-  - golint ./...
-  - go build
-  - go test ./...
-  - go tool vet .
+  - find /usr -iname openssl
