@@ -16,4 +16,5 @@ addons:
 language: python
 python: "2.7"
 script:
-  - pkg-config libssl --variable=libdir
+  - which -a python2.7
+  - ls -lah '/usr/local/bin/python2.7'
