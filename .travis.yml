@@ -24,4 +24,8 @@ before_install:
   # files in the working copy.
   - sudo sysctl fs.inotify.max_user_watches=524288
 script:
-  - find / -name 'libssl.so*' 2>/dev/null
+  - curl https://binaries.pantsbuild.org/pex/pants.1.12.0.dev0%2B31ccf73f.pex > pants.pex
+  - chmod 0755 pants.pex
+  - touch pants
+  - touch pants.ini
+  - ./pants.pex goals
